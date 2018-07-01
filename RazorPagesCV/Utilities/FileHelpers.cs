@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 using RazorPagesCV.Models;
+
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
@@ -26,10 +28,7 @@ namespace RazorPagesCV.Utilities
 
             if (property != null)
             {
-                var displayAttribute =
-                    property.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
-
-                if (displayAttribute != null)
+                if (property.GetCustomAttribute(typeof(DisplayAttribute)) is DisplayAttribute displayAttribute)
                 {
                     fieldDisplayName = $"{displayAttribute.Name} ";
                 }

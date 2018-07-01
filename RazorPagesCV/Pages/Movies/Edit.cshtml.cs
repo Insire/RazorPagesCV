@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+
 using RazorPagesCV.Models;
+
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,9 +11,9 @@ namespace RazorPagesCV.Pages.Movies
 {
     public class EditModel : PageModel
     {
-        private readonly RazorPagesCV.Models.MoviesContext _context;
+        private readonly MoviesContext _context;
 
-        public EditModel(RazorPagesCV.Models.MoviesContext context)
+        public EditModel(MoviesContext context)
         {
             _context = context;
         }

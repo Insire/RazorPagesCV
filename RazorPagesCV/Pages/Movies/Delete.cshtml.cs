@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+
 using RazorPagesCV.Models;
+
+using System.Threading.Tasks;
 
 namespace RazorPagesCV.Pages.Movies
 {
     public class DeleteModel : PageModel
     {
-        private readonly RazorPagesCV.Models.MoviesContext _context;
+        private readonly MoviesContext _context;
 
-        public DeleteModel(RazorPagesCV.Models.MoviesContext context)
+        public DeleteModel(MoviesContext context)
         {
             _context = context;
         }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+
 using RazorPagesCV.Models;
 using RazorPagesCV.Utilities;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

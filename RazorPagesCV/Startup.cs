@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 using RazorPagesCV.Models;
+
 using System.Collections.Generic;
 using System.Globalization;
 

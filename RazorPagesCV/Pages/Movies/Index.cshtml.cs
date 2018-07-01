@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
 using RazorPagesCV.Models;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,9 +12,9 @@ namespace RazorPagesCV.Pages.Movies
 {
     public class IndexModel : PageModel
     {
-        private readonly RazorPagesCV.Models.MoviesContext _context;
+        private readonly MoviesContext _context;
 
-        public IndexModel(RazorPagesCV.Models.MoviesContext context)
+        public IndexModel(MoviesContext context)
         {
             _context = context;
         }
