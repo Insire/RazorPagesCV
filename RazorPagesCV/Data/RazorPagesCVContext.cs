@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace RazorPagesCV.Models
 {
-    public class RazorPagesCVContext : DbContext
+    public class MoviesContext : DbContext
     {
-        public RazorPagesCVContext (DbContextOptions<RazorPagesCVContext> options)
+        public MoviesContext(DbContextOptions<MoviesContext> options)
             : base(options)
         {
         }
 
-        public DbSet<RazorPagesCV.Models.CuriculumVitae> CuriculumVitae { get; set; }
+        public DbSet<Movie> Movie { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
     }
 }

@@ -10,7 +10,7 @@ using System;
 
 namespace RazorPagesCV.Migrations
 {
-    [DbContext(typeof(RazorPagesCVContext))]
+    [DbContext(typeof(MoviesContext))]
     partial class RazorPagesCVContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -20,20 +20,53 @@ namespace RazorPagesCV.Migrations
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RazorPagesCV.Models.CuriculumVitae", b =>
+            modelBuilder.Entity("RazorPagesCV.Models.Movie", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
-                    b.Property<DateTime>("ModifiedAt");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Rating")
+                        .IsRequired()
+                        .HasMaxLength(5);
+
+                    b.Property<DateTime>("ReleaseDate");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.HasKey("ID");
 
-                    b.ToTable("CuriculumVitae");
+                    b.ToTable("Movie");
+                });
+
+            modelBuilder.Entity("RazorPagesCV.Models.Schedule", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("PrivateSchedule");
+
+                    b.Property<long>("PrivateScheduleSize");
+
+                    b.Property<string>("PublicSchedule");
+
+                    b.Property<long>("PublicScheduleSize");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UploadDT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Schedule");
                 });
 #pragma warning restore 612, 618
         }

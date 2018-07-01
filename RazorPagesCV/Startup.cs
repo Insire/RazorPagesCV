@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RazorPagesCV.Models;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace RazorPagesCV
 {
+    // tutorial from https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/?view=aspnetcore-2.1
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -21,7 +25,7 @@ namespace RazorPagesCV
         {
             services.AddMvc();
 
-            services.AddDbContext<RazorPagesCVContext>(options =>
+            services.AddDbContext<MoviesContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("RazorPagesCVContext")));
         }
 
@@ -37,6 +41,15 @@ namespace RazorPagesCV
             {
                 app.UseExceptionHandler("/Error");
             }
+
+            var defaultCulture = new CultureInfo("de-DE");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture),
+                SupportedCultures = new List<CultureInfo> { defaultCulture },
+                SupportedUICultures = new List<CultureInfo> { defaultCulture }
+            };
+            app.UseRequestLocalization(localizationOptions);
 
             app.UseStaticFiles();
 
